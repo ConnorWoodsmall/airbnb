@@ -6,7 +6,7 @@ valid_input = {
     "bedrooms": 2,
     "bathrooms": 1,
     "accommodates": 4,
-    "neighbourhood_cleansed": "South Boston"
+    "neighbourhood_cleansed": "District 1"
 }
 
 # Define invalid neighborhood input for prediction test
@@ -21,7 +21,7 @@ invalid_neighbourhood_input = {
 missing_field_input = {
     "bedrooms": 2,
     "bathrooms": 1,
-    "neighbourhood_cleansed": "South Boston"
+    "neighbourhood_cleansed": "District 1"
 }
 
 

@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 # Swagger config
 app.config['SWAGGER'] = {
-    'title': 'Airbnb Rental Price Prediction API',
+    'title': 'Airbnb Dallas Rental Price Prediction API',
     'uiversion': 3
 }
 swagger = Swagger(app)
@@ -72,7 +72,7 @@ encoder = None
 @app.route('/reload', methods=['POST'])
 def reload_data():
     '''
-    Reload data from the Airbnb dataset, clear the database, load new data, and return summary stats
+    Reload data from the Dallas Airbnb dataset, clear the database, load new data, and return summary stats
     ---
     responses:
       200:
@@ -81,7 +81,7 @@ def reload_data():
     global model, encoder
 
     # Step 1: Download and decompress data
-    url = 'https://data.insideairbnb.com/united-states/ma/boston/2024-06-22/data/listings.csv.gz'
+    url = 'https://data.insideairbnb.com/united-states/tx/dallas/2025-04-16/data/listings.csv.gz'
     response = requests.get(url)
     compressed_file = BytesIO(response.content)
     decompressed_file = gzip.GzipFile(fileobj=compressed_file)
@@ -154,11 +154,9 @@ def predict():
 
     # Define the list of valid neighborhoods
     valid_neighborhoods = [
-        "East Boston", "Roxbury", "Beacon Hill", "Back Bay", "North End", "Dorchester",
-        "Charlestown", "Jamaica Plain", "Downtown", "South Boston", "Bay Village",
-        "Brighton", "West Roxbury", "Roslindale", "South End", "Mission Hill",
-        "Fenway", "Allston", "Hyde Park", "West End", "Mattapan", "Leather District",
-        "South Boston Waterfront", "Chinatown", "Longwood Medical Area"
+        "District 1", "District 2", "District 3", "District 4", "District 5", "District 6",
+        "District 7", "District 8", "District 9", "District 10", "District 11", "District 12",
+        "District 13", "District 14"
     ]
 
     # Check if the model and encoder are initialized
