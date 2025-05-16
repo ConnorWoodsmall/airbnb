@@ -108,6 +108,7 @@ def reload_data():
     db.session.commit()
 
     # Step 5: Preprocess and train model
+    global df
     df, encoder = preprocess_data(listings)
     X = df.drop(columns='price')
     y = df['price']
